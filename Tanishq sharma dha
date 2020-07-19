@@ -1,0 +1,16 @@
+#include<stdio.h>
+int factrec(int N)
+{
+    if(N==1)
+        return  1;
+    else
+        return  N*factrec(N-1);
+}
+int main()
+{
+    int i,f;
+    scanf("%d",&i);
+    f=factrec(i);
+    printf("%d",f);
+    return 0;
+}
