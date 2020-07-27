@@ -1,16 +1,28 @@
-#include<stdio.h>
-int factrec(int N)
+
+#include <stdio.h>
+#include<math.h>
+void sieve(int n)
 {
-    if(N==1)
-        return  1;
-    else
-        return  N*factrec(N-1);
+    int isprime [n+1];
+    int i;
+    for(i=0;i<=n;i++)
+    isprime[i]=1;
+    isprime[0]=isprime[1]=0;
+    for(i=2;i<=floor(sqrt(n));i++)
+    {
+        int j;
+        for(j=2*i;j<=n;j+=i)
+        isprime[j]=0;
+    }
+    for(i=0;i<=n;i++)
+    {
+        if(isprime[i]==1)
+    printf("%d ",i);
+    }
 }
 int main()
 {
-    int i,f;
-    scanf("%d",&i);
-    f=factrec(i);
-    printf("%d",f);
-    return 0;
+    int limit;
+    scanf("%d",&limit);
+    sieve(limit);
 }
